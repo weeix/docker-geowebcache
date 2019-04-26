@@ -1,11 +1,13 @@
 FROM tomcat:8
 
+ARG GWC_VERSION=1.15.1
+
 ENV GWC_USER=geowebcache GWC_PASS=secured
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 RUN cd /usr/local/tomcat/webapps/ \
-    && curl -SL https://sourceforge.net/projects/geowebcache/files/geowebcache/1.15.0/geowebcache-1.15.0-war.zip/download --output geowebcache.war.zip \
+    && curl -SL https://sourceforge.net/projects/geowebcache/files/geowebcache/${GWC_VERSION}/geowebcache-${GWC_VERSION}-war.zip/download --output geowebcache.war.zip \
     && unzip geowebcache.war.zip \
     && unzip geowebcache.war -d gwc \
     && rm -f geowebcache.war.zip \

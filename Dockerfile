@@ -1,6 +1,6 @@
 FROM tomcat:8
 
-ARG GWC_VERSION=1.15.1
+ARG GWC_VERSION=1.15.2
 
 ENV GWC_USER=geowebcache GWC_PASS=secured
 
